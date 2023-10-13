@@ -21,20 +21,16 @@ class ViewController: UIViewController {
     }
     
     private func callTheAPi(){
-        print("api calling")
-        AF.request("https://api.themoviedb.org/3/trending/all/day?api_key=f393d52a4b88513749207fa6a234dda9").response(completionHandler: { [weak self] response in
-            if let data = response.data {
-                   do {
-                       print("getting data from api")
-                       let resultData = try JSONDecoder().decode(ResultData.self, from: data)
-                       self?.resultdata = resultData.results
-                       self?.collectionView01.reloadData()
-                       print("data stored")
-                   } catch {
-                       print("catch error")
-                       print("Error decoding JSON: \(error)")
-                   }
-               }
+        NetworkManager.networkCall(with: "all", completion: { [weak self] result in
+            switch result{
+            case .success(let data):
+                self?.resultdata = data
+                DispatchQueue.main.async {
+                    self?.collectionView01.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
         })
     }
 }

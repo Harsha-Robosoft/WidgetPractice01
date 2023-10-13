@@ -8,4 +8,10 @@ target 'WidgetPractice01' do
   # Pods for WidgetPractice01
   pod 'Alamofire'
   pod 'SDWebImage'
+
+target 'PracticeWidgetExtension' do
+
+  pod 'Alamofire'
+  pod 'SDWebImage'
+
 end
