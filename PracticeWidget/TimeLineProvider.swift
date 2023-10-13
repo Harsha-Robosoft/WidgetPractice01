@@ -46,12 +46,7 @@ struct Provider: TimelineProvider {
         task.resume()
     }
                                                 
-    @objc func fetchDataAndRefresh() {
-                
-                
-                
-                
-    }
+
 
     func fetchDataAgain(with: String, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         guard let url = URL(string: "https://api.themoviedb.org/3/trending/\(with)/day?api_key=f393d52a4b88513749207fa6a234dda9") else { return }
