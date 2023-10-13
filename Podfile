@@ -7,4 +7,5 @@ target 'WidgetPractice01' do
 
   # Pods for WidgetPractice01
   pod 'Alamofire'
+  pod 'SDWebImage'
 end

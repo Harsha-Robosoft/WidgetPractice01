@@ -13,6 +13,7 @@
 		779864D32AD8FD46005E610D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779864D12AD8FD46005E610D /* Main.storyboard */; };
 		779864D52AD8FD47005E610D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 779864D42AD8FD47005E610D /* Assets.xcassets */; };
 		779864D82AD8FD47005E610D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779864D62AD8FD47005E610D /* LaunchScreen.storyboard */; };
+		779864E02AD91912005E610D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779864DF2AD91912005E610D /* TableViewCell.swift */; };
 		A2450439D3EC7894F621B3EB /* Pods_WidgetPractice01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B8D62043651F19E5583666 /* Pods_WidgetPractice01.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		779864D42AD8FD47005E610D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		779864D72AD8FD47005E610D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		779864D92AD8FD47005E610D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		779864DF2AD91912005E610D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		BD6C381572D712F8DE19565B /* Pods-WidgetPractice01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetPractice01.release.xcconfig"; path = "Target Support Files/Pods-WidgetPractice01/Pods-WidgetPractice01.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				779864D42AD8FD47005E610D /* Assets.xcassets */,
 				779864D62AD8FD47005E610D /* LaunchScreen.storyboard */,
 				779864D92AD8FD47005E610D /* Info.plist */,
+				779864DF2AD91912005E610D /* TableViewCell.swift */,
 			);
 			path = WidgetPractice01;
 			sourceTree = "<group>";
@@ -88,7 +91,6 @@
 				3A16C1422CD380EAB6FD520F /* Pods-WidgetPractice01.debug.xcconfig */,
 				BD6C381572D712F8DE19565B /* Pods-WidgetPractice01.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				779864D02AD8FD46005E610D /* ViewController.swift in Sources */,
+				779864E02AD91912005E610D /* TableViewCell.swift in Sources */,
 				779864CC2AD8FD46005E610D /* AppDelegate.swift in Sources */,
 				779864CE2AD8FD46005E610D /* SceneDelegate.swift in Sources */,
 			);
