@@ -16,6 +16,8 @@
 		777ADE312AD93F7600D5552A /* PracticeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 777ADE202AD93F7400D5552A /* PracticeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		777ADE382AD93FE500D5552A /* TimeLineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADE372AD93FE500D5552A /* TimeLineProvider.swift */; };
 		777ADE3A2AD9424F00D5552A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADE392AD9424F00D5552A /* NetworkManager.swift */; };
+		777ADE3E2ADCFBEE00D5552A /* CountdownWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADE3C2ADCFB4500D5552A /* CountdownWidget.swift */; };
+		777ADE412ADD1F0A00D5552A /* ColourChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777ADE3F2ADD1D4300D5552A /* ColourChange.swift */; };
 		779864CC2AD8FD46005E610D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779864CB2AD8FD46005E610D /* AppDelegate.swift */; };
 		779864CE2AD8FD46005E610D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779864CD2AD8FD46005E610D /* SceneDelegate.swift */; };
 		779864D02AD8FD46005E610D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779864CF2AD8FD46005E610D /* ViewController.swift */; };
@@ -63,6 +65,8 @@
 		777ADE2E2AD93F7600D5552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777ADE372AD93FE500D5552A /* TimeLineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineProvider.swift; sourceTree = "<group>"; };
 		777ADE392AD9424F00D5552A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		777ADE3C2ADCFB4500D5552A /* CountdownWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownWidget.swift; sourceTree = "<group>"; };
+		777ADE3F2ADD1D4300D5552A /* ColourChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourChange.swift; sourceTree = "<group>"; };
 		779864C82AD8FD46005E610D /* WidgetPractice01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WidgetPractice01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779864CB2AD8FD46005E610D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		779864CD2AD8FD46005E610D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				777ADE362AD93FA200D5552A /* SomeFiles */,
 				777ADE2A2AD93F7400D5552A /* PracticeWidget.swift */,
 				777ADE372AD93FE500D5552A /* TimeLineProvider.swift */,
+				777ADE3C2ADCFB4500D5552A /* CountdownWidget.swift */,
+				777ADE3F2ADD1D4300D5552A /* ColourChange.swift */,
 				777ADE2C2AD93F7600D5552A /* Assets.xcassets */,
 				777ADE2E2AD93F7600D5552A /* Info.plist */,
 			);
@@ -318,8 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777ADE3E2ADCFBEE00D5552A /* CountdownWidget.swift in Sources */,
 				777ADE2B2AD93F7400D5552A /* PracticeWidget.swift in Sources */,
 				777ADE292AD93F7400D5552A /* PracticeWidgetLiveActivity.swift in Sources */,
+				777ADE412ADD1F0A00D5552A /* ColourChange.swift in Sources */,
 				777ADE272AD93F7400D5552A /* PracticeWidgetBundle.swift in Sources */,
 				777ADE382AD93FE500D5552A /* TimeLineProvider.swift in Sources */,
 			);
@@ -372,6 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -400,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";

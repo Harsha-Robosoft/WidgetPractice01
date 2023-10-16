@@ -12,6 +12,8 @@ import SwiftUI
 struct PracticeWidgetBundle: WidgetBundle {
     var body: some Widget {
         PracticeWidget()
-        PracticeWidgetLiveActivity()
+        PracticeWidgetColour()
+//        PracticeWidgetLiveActivity()
+//        CountdownWidget()
     }
 }
