@@ -11,7 +11,7 @@ import SwiftUI
 
 struct DoggyEntry: TimelineEntry {
     let date: Date
-    let image: UIImage
+    let image: [UIImage]?
 }
 
 struct DoggyWidgetView: View {
@@ -19,10 +19,17 @@ struct DoggyWidgetView: View {
     let entry: DoggyEntry
     
     var body: some View {
-        Image(uiImage: entry.image)
-            .resizable()
-            .scaledToFill()
-            .clipped()
+        HStack{
+            ForEach(entry.image!, id: \.self) { image in
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(8)
+                    .shadow(color: .black.opacity(0.5), radius: 5, x: 5, y: 8)
+                    .frame(width: 80, height:  90)
+                    .padding(2)
+            }
+        }
     }
 }
 
@@ -32,7 +39,7 @@ struct DoggyTimelineProvider: TimelineProvider {
 
     func placeholder(in context: Context) -> Entry {
         let sample = UIImage(named: "sample-doggy")!
-        return DoggyEntry(date: Date(), image: sample)
+        return DoggyEntry(date: Date(), image: [sample])
     }
 
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
@@ -47,7 +54,7 @@ struct DoggyTimelineProvider: TimelineProvider {
             snapshotDoggy = DoggyFetcher.cachedDoggy!
         }
         
-        let entry = DoggyEntry(date: Date(), image: snapshotDoggy)
+        let entry = DoggyEntry(date: Date(), image: [snapshotDoggy])
         completion(entry)
     }
 
@@ -64,7 +71,7 @@ struct DoggyTimelineProvider: TimelineProvider {
             
             // Next fetch happens 15 minutes later
             let nextUpdate = Calendar.current.date(
-                byAdding: DateComponents(minute: 1),
+                byAdding: DateComponents(minute: 15),
                 to: Date()
             )!
             
@@ -109,29 +116,34 @@ struct DoggyFetcher {
     }
     
     /// Call the Dog API and then download and cache the dog image
-    static func fetchRandomDoggy() async throws -> UIImage {
+    static func fetchRandomDoggy() async throws -> [UIImage] {
 
-        let url = URL(string: "https://dog.ceo/api/breeds/image/random")!
-
-        // Fetch JSON data
-        let (data, _) = try await URLSession.shared.data(from: url)
-
-        // Parse the JSON data
-        let doggy = try JSONDecoder().decode(Doggy.self, from: data)
+        var imageIs = [UIImage]()
         
-        // Download image from URL
-        let (imageData, _) = try await URLSession.shared.data(from: doggy.message)
-        
-        guard let image = UIImage(data: imageData) else {
-            throw DoggyFetcherError.imageDataCorrupted
+        for i in 0...2{
+            let url = URL(string: "https://dog.ceo/api/breeds/image/random")!
+
+            // Fetch JSON data
+            let (data, _) = try await URLSession.shared.data(from: url)
+
+            // Parse the JSON data
+            let doggy = try JSONDecoder().decode(Doggy.self, from: data)
+            
+            // Download image from URL
+            let (imageData, _) = try await URLSession.shared.data(from: doggy.message)
+            
+            guard let image = UIImage(data: imageData) else {
+                throw DoggyFetcherError.imageDataCorrupted
+            }
+            imageIs.append(image)
+            // Spawn another task to cache the downloaded image
+            Task {
+                try? await cache(imageData)
+            }
         }
         
-        // Spawn another task to cache the downloaded image
-        Task {
-            try? await cache(imageData)
-        }
         
-        return image
+        return imageIs
     }
     
     /// Save the dog image locally
@@ -153,7 +165,7 @@ struct DoggyWidget: Widget {
         .configurationDisplayName("Doggy Widget")
         .description("Unlimited doggy all day long.")
         .supportedFamilies([
-            .systemSmall,
+            .systemMedium
         ])
     }
 }

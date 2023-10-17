@@ -8,11 +8,6 @@
 import WidgetKit
 import SwiftUI
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let resultData: [AllDetails]?
-}
-
 struct PracticeWidgetEntryView : View {
     var entry: Provider.Entry
 
@@ -24,34 +19,19 @@ struct PracticeWidgetEntryView : View {
                 .fontDesign(.rounded)
                 .padding(.top, 5)
             HStack{
-                ForEach(0..<3, id: \.self) { i in
-                    if let posterPath = entry.resultData?[i].poster_path {
-                            Image(uiImage: getImage(urlString: "https://image.tmdb.org/t/p/w500\(posterPath)"))
-                                .resizable()
-                                .scaledToFill()
-                                .cornerRadius(8)
-                                .shadow(color: .black.opacity(0.5), radius: 5, x: 5, y: 8)
-                                .frame(width: 80, height:  90)
-                                .padding(.horizontal, 5)
-                                .padding(.top, 7)
-
-                    }
+                ForEach(entry.images!, id: \.self) { image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(8)
+                        .shadow(color: .black.opacity(0.5), radius: 5, x: 5, y: 8)
+                        .frame(width: 80, height:  90)
+                        .padding(.horizontal, 5)
+                        .padding(.top, 7)
                 }
             }
             Spacer()
-                
         }
-    }
-    
-    func getImage(urlString: String) -> UIImage {
-        guard let imageUrl = URL(string: urlString) else { return #imageLiteral(resourceName: "3389edd6054cba3517b0c54a13d6b791") }
-        let imageData = try?
-            Data(contentsOf: imageUrl)
-        if let imageData = imageData{
-            guard let image = UIImage(data: imageData) else { return #imageLiteral(resourceName: "3389edd6054cba3517b0c54a13d6b791") }
-            return image
-        }
-        return #imageLiteral(resourceName: "3389edd6054cba3517b0c54a13d6b791")
     }
 }
 
@@ -70,28 +50,7 @@ struct PracticeWidget: Widget {
 
 struct PracticeWidget_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeWidgetEntryView(entry: SimpleEntry(date: Date(), resultData: nil))
+        PracticeWidgetEntryView(entry: SimpleEntry(date: Date(), images: nil))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
-    }
-}
-
-
-
-struct ResultData: Decodable {
-    let results: [AllDetails]
-}
-
-struct AllDetails: Decodable {
-    let backdrop_path: String
-    let id: Int
-    let title: String?
-    let original_title: String?
-    let name: String?
-    let poster_path: String
-    let media_type: String
-    
-    
-    var imageUrl: URL? {
-        return URL(string: "https://image.tmdb.org/t/p/w500\(poster_path)")
     }
 }
