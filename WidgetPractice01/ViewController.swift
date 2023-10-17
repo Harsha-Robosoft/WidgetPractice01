@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Combine
 
 class ViewController: UIViewController {
     
@@ -20,18 +21,22 @@ class ViewController: UIViewController {
         callTheAPi()
     }
     
+    var cancelable: [AnyCancellable] = []
+    
     private func callTheAPi(){
-        NetworkManager.networkCall(with: "all", completion: { [weak self] result in
-            switch result{
-            case .success(let data):
-                self?.resultdata = data
-                DispatchQueue.main.async {
-                    self?.collectionView01.reloadData()
+        NetworkManager.networkCall(with: "all")
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion{
+                case .finished:
+                    print("fishished")
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
-            }
-        })
+        }, receiveValue: { [weak self] result in
+            self?.resultdata = result
+            self?.collectionView01.reloadData()
+        }).store(in: &cancelable)
     }
 }
 

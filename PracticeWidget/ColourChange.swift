@@ -84,3 +84,19 @@ struct ProviderColour: TimelineProvider {
     }
 }
 
+
+/*
+ 
+ for i in 0...7 {
+     let j = i + 1
+     let components = DateComponents(hour: j * 24)
+     let refreshDate = Calendar.current.date(byAdding: components, to: Date())!
+     let entry = SimpleEntryColour(
+         date: refreshDate,
+         colour: currentColor
+     )
+     entries.append(entry)
+ }
+ 
+ */
+

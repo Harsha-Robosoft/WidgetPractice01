@@ -11,8 +11,9 @@ import SwiftUI
 @main
 struct PracticeWidgetBundle: WidgetBundle {
     var body: some Widget {
-        PracticeWidget()
-        PracticeWidgetColour()
+        DoggyWidget()
+//        PracticeWidget()
+//        PracticeWidgetColour()
 //        PracticeWidgetLiveActivity()
 //        CountdownWidget()
     }
