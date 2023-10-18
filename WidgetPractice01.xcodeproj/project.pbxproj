@@ -112,12 +112,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		770658FF2ADF9CB7001DF16B /* Static widget */ = {
+			isa = PBXGroup;
+			children = (
+				777ADE2A2AD93F7400D5552A /* PracticeWidget.swift */,
+				777ADE372AD93FE500D5552A /* TimeLineProvider.swift */,
+			);
+			path = "Static widget";
+			sourceTree = "<group>";
+		};
 		777ADE252AD93F7400D5552A /* PracticeWidget */ = {
 			isa = PBXGroup;
 			children = (
+				770658FF2ADF9CB7001DF16B /* Static widget */,
 				777ADE362AD93FA200D5552A /* SomeFiles */,
-				777ADE2A2AD93F7400D5552A /* PracticeWidget.swift */,
-				777ADE372AD93FE500D5552A /* TimeLineProvider.swift */,
 				777ADE3C2ADCFB4500D5552A /* CountdownWidget.swift */,
 				777ADE3F2ADD1D4300D5552A /* ColourChange.swift */,
 				777ADE2C2AD93F7600D5552A /* Assets.xcassets */,
