@@ -121,16 +121,24 @@
 			path = "Static widget";
 			sourceTree = "<group>";
 		};
+		770659042ADF9D74001DF16B /* Countdown and Colour and Dog */ = {
+			isa = PBXGroup;
+			children = (
+				777ADE3F2ADD1D4300D5552A /* ColourChange.swift */,
+				777ADE3C2ADCFB4500D5552A /* CountdownWidget.swift */,
+				77421C022ADE5288001E4058 /* DogWidgetTest.swift */,
+			);
+			path = "Countdown and Colour and Dog";
+			sourceTree = "<group>";
+		};
 		777ADE252AD93F7400D5552A /* PracticeWidget */ = {
 			isa = PBXGroup;
 			children = (
-				770658FF2ADF9CB7001DF16B /* Static widget */,
 				777ADE362AD93FA200D5552A /* SomeFiles */,
-				777ADE3C2ADCFB4500D5552A /* CountdownWidget.swift */,
-				777ADE3F2ADD1D4300D5552A /* ColourChange.swift */,
+				770658FF2ADF9CB7001DF16B /* Static widget */,
+				770659042ADF9D74001DF16B /* Countdown and Colour and Dog */,
 				777ADE2C2AD93F7600D5552A /* Assets.xcassets */,
 				777ADE2E2AD93F7600D5552A /* Info.plist */,
-				77421C022ADE5288001E4058 /* DogWidgetTest.swift */,
 			);
 			path = PracticeWidget;
 			sourceTree = "<group>";
