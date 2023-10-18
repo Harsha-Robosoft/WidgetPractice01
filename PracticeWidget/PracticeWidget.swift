@@ -12,25 +12,29 @@ struct PracticeWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack{
-            Text("Trending Contents")
-                .font(.body)
-                .fontWeight(.bold)
-                .fontDesign(.rounded)
-                .padding(.top, 5)
-            HStack{
-                ForEach(entry.images!, id: \.self) { image in
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(8)
-                        .shadow(color: .black.opacity(0.5), radius: 5, x: 5, y: 8)
-                        .frame(width: 80, height:  90)
-                        .padding(.horizontal, 5)
-                        .padding(.top, 7)
+        ZStack{
+            ContainerRelativeShape()
+                .fill(.brown.gradient.opacity(0.6))
+            VStack{
+                Text("Trending Contents")
+                    .font(.body)
+                    .fontWeight(.bold)
+                    .fontDesign(.rounded)
+                    .foregroundColor(.brown)
+                    .padding(.top, 5)
+                HStack{
+                    ForEach(entry.images!, id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .cornerRadius(8)
+                            .shadow(color: .black.opacity(0.5), radius: 8, x: 5, y: 5)
+                            .frame(width: 80, height:  90)
+                            .padding(5)
+                    }
                 }
+                Spacer()
             }
-            Spacer()
         }
     }
 }
@@ -50,7 +54,8 @@ struct PracticeWidget: Widget {
 
 struct PracticeWidget_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeWidgetEntryView(entry: SimpleEntry(date: Date(), images: nil))
+        PracticeWidgetEntryView(entry: SimpleEntry(date: Date(), images: [UIImage(imageLiteralResourceName: "testImage01"),UIImage(imageLiteralResourceName: "testImage02"),UIImage(imageLiteralResourceName: "testImage03")]))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
+

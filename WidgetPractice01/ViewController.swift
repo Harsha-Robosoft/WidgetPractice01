@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         }, receiveValue: { [weak self] result in
             self?.resultdata = result
             self?.collectionView01.reloadData()
+            for i in 0...2{
+                debugPrint(result[i])
+            }
         }).store(in: &cancelable)
     }
 }
